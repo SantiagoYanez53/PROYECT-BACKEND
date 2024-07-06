@@ -7,11 +7,12 @@ const authRoute = require("./routes/auth.route");
 const app = express();
 
 //middleware
+app.use(cors());
 app.use(express.json());
 app.use("/user", userRoute);
 app.use("/post", postRoute);
 app.use("/auth", authRoute);
-app.use(cors());
+
 app.get("/", (req,res) => {
     res.json({
         message: "Users_Project APIv1"
