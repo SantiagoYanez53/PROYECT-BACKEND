@@ -9,6 +9,12 @@ const schema = new mongoose.Schema({
         minLength: 2,
         maxLength: 100,
     },
+    user: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 100,
+    },
     profilePic: {
         type: String,
         required: false,
