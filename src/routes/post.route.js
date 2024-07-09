@@ -5,7 +5,7 @@ const jwt = require("../lib/jwt");
 const route = express.Router();
 
 // GET publicaciones 
-route.get("/post", async (req,res) => {
+route.get("/", async (req,res) => {
     try {
         const search = req.query.search;
         
@@ -35,7 +35,7 @@ route.get("/post", async (req,res) => {
 });
 
 // POST PARA CREAR Publicaciones
-route.post("/post", auth, async (req,res) => {
+route.post("/", auth, async (req,res) => {
     try {
         req.body.user = req.user.id;
         const postCreate = await postUseCase.create(req.body); 
