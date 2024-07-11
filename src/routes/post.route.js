@@ -34,6 +34,29 @@ route.get("/", async (req,res) => {
     }
 });
 
+//POST PARA OBTENER PUBLICACIONES POR ID
+
+route.get("/:id", async (req,res) => {
+    try {
+        const { id } = req.params
+        const post = await postUseCase.getById(id)
+        res.json({
+            succes:true,
+            message:"Post Finded whith " + id,
+            data: { post }
+        })
+        
+    } catch (error) {
+        res.status(error.status || 500 );
+        res.json({
+            succes: false,
+            error: error.message
+        })
+        
+    }
+})
+
+
 // POST PARA CREAR Publicaciones
 route.post("/", auth, async (req,res) => {
     try {
