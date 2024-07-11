@@ -38,7 +38,7 @@ route.get("/", async (req,res) => {
 
 route.get("/:id", async (req,res) => {
     try {
-        const { id } = req.params
+        const id = req.params.id
         const post = await postUseCase.getById(id)
         res.json({
             succes:true,
